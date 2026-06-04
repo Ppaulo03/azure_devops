@@ -1,0 +1,20 @@
+services:
+  webhook:
+    build: .
+    container_name: azure-devops-webhook
+    environment:
+      - EVOLUTION_API_URL=https://your-evolution-api.com
+      - EVOLUTION_API_KEY=your_api_key
+      - EVOLUTION_INSTANCE=your_instance
+      - TARGET_PHONE=5511999999999
+    restart: unless-stopped
+
+    networks:
+      - fatesg-network
+      - rede_infra
+
+networks:
+  fatesg-network:
+    external: true
+  rede_infra:
+    external: true
