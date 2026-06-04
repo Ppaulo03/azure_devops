@@ -22,11 +22,10 @@ async def send_whatsapp_message(text: str):
     payload = {
         "number": TARGET_PHONE,
         "text": text,
-        "options": {
-            "delay": 100,
-            "presence": "composing",
-            "linkPreview": False
-        }
+        "delay": 100,
+        "presence": "composing",
+        "linkPreview": False
+    
     }
 
     try:
