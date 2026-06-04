@@ -3,10 +3,10 @@ services:
     build: .
     container_name: azure-devops-webhook
     environment:
-      - EVOLUTION_API_URL={$EVOLUTION_API_URL}
-      - EVOLUTION_API_KEY={$EVOLUTION_API_KEY}
-      - EVOLUTION_INSTANCE={$EVOLUTION_INSTANCE}
-      - TARGET_PHONE={$TARGET_PHONE}
+      - EVOLUTION_API_URL=$EVOLUTION_API_URL
+      - EVOLUTION_API_KEY=$EVOLUTION_API_KEY
+      - EVOLUTION_INSTANCE=$EVOLUTION_INSTANCE
+      - TARGET_PHONE=$TARGET_PHONE
     restart: unless-stopped
 
     networks:
