@@ -7,7 +7,7 @@ load_dotenv()
 EVOLUTION_API_URL = os.getenv("EVOLUTION_API_URL")
 EVOLUTION_API_KEY = os.getenv("EVOLUTION_API_KEY")
 EVOLUTION_INSTANCE = os.getenv("EVOLUTION_INSTANCE")
-TARGET_PHONE = os.getenv("TARGET_PHONE")
+TARGET_PHONE = os.getenv("TARGET_PHONE", "").replace("+", "").replace("-", "").replace(" ", "")
 
 async def send_whatsapp_message(text: str):
     if not all([EVOLUTION_API_URL, EVOLUTION_API_KEY, EVOLUTION_INSTANCE, TARGET_PHONE]):
@@ -21,13 +21,11 @@ async def send_whatsapp_message(text: str):
     }
     payload = {
         "number": TARGET_PHONE,
+        "text": text,
         "options": {
             "delay": 100,
             "presence": "composing",
             "linkPreview": False
-        },
-        "textMessage": {
-            "text": text
         }
     }
 
